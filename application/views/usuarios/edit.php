@@ -71,7 +71,7 @@
                             <select class="form-control" name="perfil_usuario">
 
                                 <option value="2" <?php echo ($perfil_usuario->id == 2) ? 'selected' : '' ?>>Vendedor</option>
-                                <option value="1" <?php echo ($usuario->id == 1) ? 'selected' : '' ?>>Administrador</option>
+                                <option value="1" <?php echo ($perfil_usuario->id == 1) ? 'selected' : '' ?>>Administrador</option>
 
                             </select>
                         </div>

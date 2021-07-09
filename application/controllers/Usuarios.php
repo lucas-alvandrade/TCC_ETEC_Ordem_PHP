@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('Ação não permitida');
 
-    class Usuarios extends CI_Controller {
+class Usuarios extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -58,10 +58,50 @@ defined('BASEPATH') OR exit('Ação não permitida');
             $this->form_validation->set_rules('username', '', 'trim|required|callback_username_check');
             $this->form_validation->set_rules('password', 'Senha', 'min_length[5]|max_length[255]');
             $this->form_validation->set_rules('confirm_password', 'Confirme', 'matches[password]');
-            
+
             if ($this->form_validation->run()) {
 
-                exit('Validado');
+                $data = elements(
+                        array(
+                            'first_name',
+                            'last_name',
+                            'email',
+                            'username',
+                            'active',
+                            'password'
+                        ), $this->input->post()
+                );
+
+                $data = $this->security->xss_clean($data);
+
+                /* Verifica se foi passado o password */
+                $password = $this->input->post('password');
+
+                if (!$password) {
+
+                    unset($data['password']);
+                }
+
+                if ($this->ion_auth->update($usuario_id, $data)) {
+
+                    $perfil_usuario_db = $this->ion_auth->get_users_groups($usuario_id)->row();
+
+                    $perfil_usuario_post = $this->input->post('perfil_usuario');
+
+                    /* Se for diferente, atualiza o grupo */
+                    if ($perfil_usuario_post != $perfil_usuario_db->id) {
+
+                        $this->ion_auth->remove_from_group($perfil_usuario_db->id, $usuario_id);
+                        $this->ion_auth->add_to_group($perfil_usuario_post, $usuario_id);
+                    }
+
+                    $this->session->set_flashdata('success', 'Dados salvos com sucesso');
+                } else {
+
+                    $this->session->set_flashdata('error', 'Erro ao salvar os dados');
+                }
+                
+                redirect('usuarios');
             } else {
 
                 $data = array(
@@ -77,39 +117,34 @@ defined('BASEPATH') OR exit('Ação não permitida');
         }
     }
 
-    public function email_check($email){
-        
+    public function email_check($email) {
+
         $usuario_id = $this->input->post('usuario_id');
-        
-        if($this->core_model->get_by_id('users', array('email' => $email, 'id !=' => $usuario_id))){
-            
+
+        if ($this->core_model->get_by_id('users', array('email' => $email, 'id !=' => $usuario_id))) {
+
             $this->form_validation->set_message('email_check', 'Esse e-mail já existe');
-            
+
             return FALSE;
-            
         } else {
-            
+
             return TRUE;
-            
         }
-        
     }
-    
-    public function username_check($username){
-        
+
+    public function username_check($username) {
+
         $usuario_id = $this->input->post('usuario_id');
-        
-        if($this->core_model->get_by_id('users', array('username' => $username, 'id !=' => $usuario_id))){
-            
+
+        if ($this->core_model->get_by_id('users', array('username' => $username, 'id !=' => $usuario_id))) {
+
             $this->form_validation->set_message('username_check', 'Esse usuário já existe');
-            
+
             return FALSE;
-            
         } else {
-            
+
             return TRUE;
-            
         }
-        
     }
-}   
+
+}
