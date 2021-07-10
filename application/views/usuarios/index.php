@@ -52,7 +52,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a title="Cadastrar novo usuário" href="" class="btn btn-success btn-sm float-right"><i class="fas fa-user-plus">&nbsp;Novo</i></a>
+                <a title="Cadastrar novo usuário" href="<?php echo base_url('usuarios/add')?>" class="btn btn-success btn-sm float-right"><i class="fas fa-user-plus">&nbsp;Novo</i></a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -62,7 +62,7 @@
                                 <th>#</th>
                                 <th>Usuário</th>
                                 <th>Login</th>
-                                <th>Ativo</th>
+                                <th class="text-center">Ativo</th>
                                 <th class="text-right no-sort">Ações</th>
                             </tr>
                         </thead>
@@ -72,7 +72,7 @@
                                     <td><?php echo $user->id ?></td>
                                     <td><?php echo $user->username ?></td>
                                     <td><?php echo $user->email ?></td>
-                                    <td><?php echo $user->active ?></td>
+                                    <td class="text-center pr-4"><?php echo ($user->active == 1 ? '<span class="badge badge-info btn-sm">Sim</span>' : '<span class="badge badge-warning btn-sm">Não</span>') ?></td>
                                     <td class="text-right">
                                         <a title="Editar" href="<?php echo base_url('usuarios/edit/' . $user->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i></a>
                                         <a title="Excluir" href="" class="btn btn-sm btn-danger"><i class="fas fa-user-times"></i></a>
