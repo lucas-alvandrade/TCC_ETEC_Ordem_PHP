@@ -4,7 +4,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; System Ordem <?php echo date('Y') ?>&nbsp; | By GRUPO 7</span>
+                <span>Copyright &copy; GRUPO7 Systems S.A <?php echo date('Y') ?>&nbsp; | By GRUPO7</span>
             </div>
         </div>
     </footer>

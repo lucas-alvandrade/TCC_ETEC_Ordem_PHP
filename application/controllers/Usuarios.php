@@ -6,6 +6,11 @@ class Usuarios extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+
+        if (!$this->ion_auth->logged_in()) {
+            $this->session->set_flashdata('info', 'Sua sessão expirou!');
+            redirect('login');
+        }
     }
 
     public function index() {
@@ -178,16 +183,16 @@ class Usuarios extends CI_Controller {
             $this->session->set_flashdata('error', 'Usuário não encontrado');
             redirect('usuarios');
         }
-        
-        if($this->ion_auth->is_admin($usuario_id)){
+
+        if ($this->ion_auth->is_admin($usuario_id)) {
             $this->session->set_flashdata('error', 'O administrador não pode ser excluído');
             redirect('usuarios');
         }
-        
-        if($this->ion_auth->delete_user($usuario_id)){
+
+        if ($this->ion_auth->delete_user($usuario_id)) {
             $this->session->set_flashdata('success', 'Usuário excluído com sucesso');
             redirect('usuarios');
-        }else{
+        } else {
             $this->session->set_flashdata('error', 'O administrador não pode ser excluído');
             redirect('usuarios');
         }
