@@ -215,7 +215,7 @@ class Usuarios extends CI_Controller {
 
     public function username_check($username) {
 
-        $usuario_id = $this->input->post('usuario_id');
+        $usuario_id = $this->input->post('usuario_id');      
 
         if ($this->core_model->get_by_id('users', array('username' => $username, 'id !=' => $usuario_id))) {
 
