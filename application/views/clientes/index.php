@@ -61,7 +61,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
-                                <th>CPF /CNPJ</th>
+                                <th>CPF / CNPJ</th>
                                 <th>Tipo cliente</th>
                                 <th class="text-center">Ativo</th>
                                 <th class="text-right no-sort pr-2">Ações</th>

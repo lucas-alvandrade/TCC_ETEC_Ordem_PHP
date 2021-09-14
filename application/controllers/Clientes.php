@@ -113,7 +113,7 @@ class Clientes extends CI_Controller {
             //erro de validação
 
             $data = array(
-                'titulo' => 'Atualizar cliente',
+                'titulo' => 'Cadastrar cliente',
                 'scripts' => array(
                     'vendor/mask/jquery.mask.min.js',
                     'vendor/mask/app.js',
@@ -174,28 +174,6 @@ class Clientes extends CI_Controller {
 
             if ($this->form_validation->run()) {
 
-                /*
-                 *     [cliente_nome] => Fulano
-                  [cliente_sobrenome] => de Tal
-                  [cliente_data_nascimento] => 2000-01-01
-                  [cliente_cpf] => 836.288.018-00
-                  [cliente_rg_ie] => 12.454.265-7
-                  [cliente_email] => fulano@gmail.com
-                  [cliente_telefone] => (11) 7177-1771
-                  [cliente_celular] => (11) 91711-7117
-                  [cliente_endereco] => Rua das Cópias
-                  [cliente_numero_endereco] => 1337
-                  [cliente_complemento] => Casa
-                  [cliente_bairro] => Nem sei
-                  [cliente_cep] => 80540-000
-                  [cliente_cidade] => São Paulo
-                  [cliente_estado] => SP
-                  [cliente_ativo] => 1
-                  [cliente_obs] => Tente outra vez
-                  [cliente_tipo] => 1
-                  [cliente_id] => 1
-                 */
-
                 $data = elements(
                         array(
                             'cliente_nome',
@@ -236,7 +214,7 @@ class Clientes extends CI_Controller {
                 //erro de validação
 
                 $data = array(
-                    'titulo' => 'Cadastrar cliente',
+                    'titulo' => 'Atualizar cliente',
                     'scripts' => array(
                         'vendor/mask/jquery.mask.min.js',
                         'vendor/mask/app.js',
