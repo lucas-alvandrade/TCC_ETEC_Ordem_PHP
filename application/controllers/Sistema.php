@@ -15,6 +15,11 @@ class Sistema extends CI_Controller {
 
     public function index() {
 
+         if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('info', 'Acesso negado');
+            redirect('/');
+        }
+        
         $data = array(
             'titulo' => 'Editar informações do sistema',
             
