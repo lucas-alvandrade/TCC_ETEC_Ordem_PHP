@@ -363,7 +363,7 @@ class Ordem_servicos extends CI_Controller {
 //            print_r($servicos_ordem);
 //            exit();
 
-            $valor_final_os = $this->ordem_servicos_model->get_valor_final_os($ordem_servico_id);
+            $valor_final_os = $this->ordem_servicos_model->get_valor_final_relatorio($ordem_servico_id);
 
 //            echo '<pre>';
 //            print_r($valor_final_os);

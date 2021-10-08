@@ -76,7 +76,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Escolha uma opção</h6>
                 <a title="Gerenciar contas a pagar" class="collapse-item" href="<?php echo base_url('pagar'); ?>"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Contas a pagar</a>
-                <a title="Gerenciar contas a receber" class="collapse-item" href="<?php echo base_url('receber'); ?>"><i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;Contas a receber</a>              
+                <a title="Gerenciar contas a receber" class="collapse-item" href="<?php echo base_url('receber'); ?>"><i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;Contas a receber</a>              
                 <a title="Gerenciar formas de pagamento" class="collapse-item" href="<?php echo base_url('modulo'); ?>"><i class="fas fa-credit-card"></i>&nbsp;&nbsp;Formas de pagamento</a>              
             </div>
         </div>
@@ -85,15 +85,15 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorio"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-file-invoice-dollar"></i>
+            <i class="fas fa-search-dollar"></i>
             <span>Relatórios</span>
         </a>
         <div id="collapseRelatorio" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Escolha uma opção</h6>
-                <a title="Gerenciar contas a pagar" class="collapse-item" href="<?php echo base_url('pagar'); ?>"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Relatório A</a>
-                <a title="Gerenciar contas a receber" class="collapse-item" href="<?php echo base_url('receber'); ?>"><i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;Relatório B</a>              
-                <a title="Gerenciar formas de pagamento" class="collapse-item" href="<?php echo base_url('modulo'); ?>"><i class="fas fa-credit-card"></i>&nbsp;&nbsp;Relatório C</a>              
+                <a title="Gerar relatório de Ordens de Serviços" class="collapse-item" href="<?php echo base_url('relatorios/os'); ?>"><i class="fas fa-wrench"></i>&nbsp;&nbsp;Ordens de serviços</a>
+                <a title="Gerar relatório de contas a receber" class="collapse-item" href="<?php echo base_url('relatorios/receber'); ?>"><i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;Contas a receber</a>              
+                <a title="Gerar relatório de contas a pagar" class="collapse-item" href="<?php echo base_url('relatorios/pagar'); ?>"><i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;Contas a pagar</a>              
             </div>
         </div>
     </li>
