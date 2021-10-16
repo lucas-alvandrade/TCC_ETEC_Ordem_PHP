@@ -23,6 +23,8 @@ class Home extends CI_Controller {
             //Home
 //            'soma_vendas' => $this->home_model->get_sum_vendas(), //Descomentar após inserir o Módulo Vendas
             'soma_ordem_servicos' => $this->home_model->get_sum_ordem_servicos(),
+            'total_ordem_servicos' => $this->home_model->get_total_servicos_ativos(),
+            'ordens_em_aberto' => $this->home_model->get_servicos_ativos(),
             'total_pagar' => $this->home_model->get_sum_pagar(),
             'total_receber' => $this->home_model->get_sum_receber(),
 //            'produtos_mais_vendidos' => $this->home_model->get_produtos_mais_vendidos(),

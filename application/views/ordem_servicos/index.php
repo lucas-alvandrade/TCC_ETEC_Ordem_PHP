@@ -81,6 +81,7 @@
                                         <a title="Imprimir" href="<?php echo base_url('os/pdf/' . $os->ordem_servico_id) ?>" class="btn btn-sm btn-dark"><i class="fas fa-print"></i></i></a>
                                         <a title="Editar" href="<?php echo base_url('os/edit/' . $os->ordem_servico_id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i></a>
                                         <a title="Excluir" href="javascript(void)" data-toggle="modal" data-target="#os-<?php echo $os->ordem_servico_id; ?>" class="btn btn-sm btn-danger"><i class="fas fa-user-times"></i></a>
+                                        <a title="WhatsApp" href="javascript(void)" data-toggle="modal" data-target="#whats-<?php echo $os->ordem_servico_id; ?>" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i></a>
                                     </td>
                                 </tr>
 
@@ -98,6 +99,35 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Não</button>
                                             <a class="btn btn-danger btn-sm" href="<?php echo base_url('os/del/' . $os->ordem_servico_id); ?>">Sim</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="whats-<?php echo $os->ordem_servico_id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Enviar WhatsApp para <?php echo $os->cliente_nome ?></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Número do cliente:</label>
+                                                    <input type="text" class="form-control" name="send_to" value="<?php echo set_value('to'); ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                    <textarea class="form-control" name="message_body" value="<?php echo set_value('msg'); ?>"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                            <a class="btn btn-success btn-sm" href="">Enviar</a>
                                         </div>
                                     </div>
                                 </div>

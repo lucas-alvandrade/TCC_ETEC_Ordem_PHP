@@ -56,14 +56,11 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        Total de Vendas</div>
-                                    <!--                                Remover linha abaixo após inserir módulo vendas-->
-                                    <div class="h5 mb-0 font-weight-bold text-success">$40,000</div>
-                                    <!--                                Descomentar linha abaixo após inserir módulo vendas-->
-                                                                    <!--<div class="h5 mb-0 font-weight-bold text-success"><?php echo 'R$&nbsp;' . $soma_vendas->venda_valor_total; ?>/div>--> 
+                                        Total de O.S em Aberto</div>                                   
+                                    <div class="h5 mb-0 font-weight-bold text-success"><?php echo $total_ordem_servicos->quantidade_ordens_servicos ?></div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-shopping-cart fa-3x text-success"></i>
+                                    <i class="fas fa-tools fa-3x text-success"></i>
                                 </div>
                             </div>
                         </div>
@@ -140,43 +137,28 @@
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">TOP 3 Produtos mais vendidos</h6>
+                        <h6 class="m-0 font-weight-bold text-success">Ordens em Aberto</h6>
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 16rem;"
-                                 src="<?php echo base_url('/public/img/undraw_logistics_x4dc.svg') ?>" alt="...">
+                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 13rem;"
+                                 src="<?php echo base_url('/public/img/undraw_bug_fixing_oc7a.svg') ?>" alt="...">
                         </div>   
                         <div class="table-responsive">                            
                             <table class="table table-striped table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>Nome do Produto</th>
-                                        <th class="text-center">Vendidos</th>
+                                        <th>Cliente</th>
+                                        <th class="text-center">Data de entrada</th>
                                     </tr>
-                                </thead>             
-<!--                                <tbody>
-//Descomentar após a inserção do módulo Venda de Produtos
-                                <?php foreach ($produtos_mais_vendidos as $produto): ?>
-                                                        <tr>
-                                                            <td><?php echo$produto->produto_descricao ?></td>
-                                                            <td class="text-center"><?php echo$produto->produto_quantidade_vendidos ?></td>
-                                                        </tr>
-                                <?php endforeach; ?>
-                                </tbody>-->
+                                </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Produto A</td>
-                                        <td class="text-center">5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Produto B</td>
-                                        <td class="text-center">3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Produto C</td>
-                                        <td class="text-center">2</td>
-                                    </tr>
+                                    <?php foreach ($ordens_em_aberto as $ordem): ?>
+                                        <tr>
+                                            <td><?php echo $ordem->cliente_nome_completo ?></td>
+                                            <td class="text-center"><?php echo formata_data_banco_com_hora($ordem->ordem_servico_data_emissao) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>                           

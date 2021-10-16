@@ -257,17 +257,17 @@ class Ordem_servicos extends CI_Controller {
     }
 
     public function del($ordem_servico_id = NULL) {
-        
+
         if (!$ordem_servico_id || !$this->core_model->get_by_id('ordens_servicos', array('ordem_servico_id' => $ordem_servico_id))) {
             $this->session->set_flashdata('error', 'Ordem de serviço não encontrada');
             redirect('os');
-        } 
-        
+        }
+
         if ($this->core_model->get_by_id('ordens_servicos', array('ordem_servico_id' => $ordem_servico_id, 'ordem_servico_status' => 0))) {
             $this->session->set_flashdata('error', 'Não é possível excluir uma ordem de serviço Em aberto');
-            redirect('os');          
-        } 
-        
+            redirect('os');
+        }
+
         $this->core_model->delete('ordens_servicos', array('ordem_servico_id' => $ordem_servico_id));
         redirect('os');
     }
@@ -363,7 +363,7 @@ class Ordem_servicos extends CI_Controller {
 //            print_r($servicos_ordem);
 //            exit();
 
-            $valor_final_os = $this->ordem_servicos_model->get_valor_final_relatorio($ordem_servico_id);
+            $valor_final_os = $this->ordem_servicos_model->get_valor_final_os($ordem_servico_id);
 
 //            echo '<pre>';
 //            print_r($valor_final_os);
