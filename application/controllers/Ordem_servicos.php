@@ -404,4 +404,23 @@ class Ordem_servicos extends CI_Controller {
         }
     }
 
+    public function whats() {
+
+        $send_to = $this->input->post('send_to');
+        $message_body = $this->input->post('message_body');
+
+        $this->load->Whatsappapi_model();
+
+        $obj = new Whatsappapi_model(); // create an object of the WhatsappAPI class
+        $status = $obj->send($send_to, $message_body); // NOTE: Phone Number should be with country code
+
+        $status = json_decode($status);
+
+        echo '<pre>';
+        print_r($status);
+        exit();
+
+        redirect('os');
+    }
+
 }

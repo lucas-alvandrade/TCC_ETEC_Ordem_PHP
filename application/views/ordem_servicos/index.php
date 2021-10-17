@@ -114,21 +114,22 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form action="" class="form" method="POST" name="form_msg">
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="col-form-label">Número do cliente:</label>
-                                                    <input type="text" class="form-control" name="send_to" value="<?php echo set_value('to'); ?>">
+                                                    <input type="text" class="form-control" name="send_to">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="message-text" class="col-form-label">Mensagem:</label>
-                                                    <textarea class="form-control" name="message_body" value="<?php echo set_value('msg'); ?>"></textarea>
+                                                    <textarea class="form-control" name="message_body"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Enviar</button>
+                                                    <!--<a class="btn btn-success btn-sm" href="<?php echo base_url('os/whats/'); ?>">Enviar</a>-->
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Fechar</button>
-                                            <a class="btn btn-success btn-sm" href="">Enviar</a>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
