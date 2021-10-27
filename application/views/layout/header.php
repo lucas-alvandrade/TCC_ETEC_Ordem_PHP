@@ -33,7 +33,7 @@
     
 </head>
 
-<body id="page-top">
+<body id="page-top" class="bg-login-image">
 
     <!-- Page Wrapper -->
     <div id="wrapper">

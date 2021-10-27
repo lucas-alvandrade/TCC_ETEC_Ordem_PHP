@@ -406,21 +406,48 @@ class Ordem_servicos extends CI_Controller {
 
     public function whats() {
 
-        $send_to = $this->input->post('send_to');
-        $message_body = $this->input->post('message_body');
+        $this->form_validation->set_rules('phone', '', 'trim|required');
+        $this->form_validation->set_rules('msg', '', 'trim|required');
 
-        $this->load->Whatsappapi_model();
+        if ($this->form_validation->run()) {
 
-        $obj = new Whatsappapi_model(); // create an object of the WhatsappAPI class
-        $status = $obj->send($send_to, $message_body); // NOTE: Phone Number should be with country code
+            $whatsapp = $this->input->post('phone');
+            $apimsg = $this->input->post('msg');
 
-        $status = json_decode($status);
+            //dispara a mensagem da API
+            $url = 'https://whatsapp-api-assistec.herokuapp.com/send-message';
+            $data = array('number' => '55' . $whatsapp, 'message' => $apimsg);
 
-        echo '<pre>';
-        print_r($status);
-        exit();
+            // use key 'http' even if you send the request to https://...
+            $options = array(
+                'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
+                )
+            );
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            if ($result === FALSE) { /* Handle error */
+            }
+            var_dump($result);
 
-        redirect('os');
+            redirect('os');
+        } else {
+
+            $data = array(
+                'titulo' => 'Enviar WhatsApp',               
+            );
+
+//            echo '<pre>';
+//            print_r($data['categoria']);
+//            exit();
+
+            $this->load->view('layout/header', $data);
+            $this->load->view('ordem_servicos/whats');
+            $this->load->view('layout/footer');
+        }
+     
     }
 
 }

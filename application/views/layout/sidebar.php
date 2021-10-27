@@ -6,7 +6,7 @@
 <!--        <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>-->
-        <div class="sidebar-brand-text mx-3">S.O.S ASSISTEC</div>
+<div class="sidebar-brand-text mx-3">LEGENDARY<br>INFORMÁTICA</div>
     </a>
 
     <!-- Divider -->
